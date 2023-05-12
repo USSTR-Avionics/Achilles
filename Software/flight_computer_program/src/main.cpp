@@ -1,18 +1,10 @@
 #include <Arduino.h>
+#include "sensor_led.h"
 
-// put function declarations here:
-int myFunction(int, int);
+int main()
+{
+  sensor_led led;
+  led.flash_internal_led(1);
 
-void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  return 0;
 }
