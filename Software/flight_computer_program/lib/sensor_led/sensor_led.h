@@ -1,10 +1,13 @@
 #include "sensor_pins.h"
 #include <Arduino.h>
 
-#define BUILTIN_LED 13 // this does not really change unless microcontroller changes
-
 class sensor_led
 {
+    private:
+        const int LED_BLUE = 38;
+        const int LED_GREEN = 39;
+        const int LED_RED = 40;
+        const int BUILTIN_LED = 13;
     public:
         /**
         * @brief  initialize the LED pins
