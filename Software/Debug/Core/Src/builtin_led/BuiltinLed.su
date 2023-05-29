@@ -1,0 +1,3 @@
+../Core/Src/builtin_led/BuiltinLed.cpp:10:1:Builtin_Led::Builtin_Led()	16	static
+../Core/Src/builtin_led/BuiltinLed.cpp:15:1:Builtin_Led::~Builtin_Led()	16	static
+../Core/Src/builtin_led/BuiltinLed.cpp:15:1:virtual Builtin_Led::~Builtin_Led()	16	static
