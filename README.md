@@ -2,12 +2,12 @@
 ---
 
 # Setup
-Using VSCode and PlatformIO (recommended)
+Using VSCode and STM32 Cube IDE (recommended)
 
 
 ## Things you need to get started
 - [ ] VSCode  
-- [ ] platformIO extension  
+- [ ] STM32 Cube IDE 
 - [ ] install git bash for your platform  
 
 
@@ -24,24 +24,13 @@ Using VSCode and PlatformIO (recommended)
     [troubleshooting] if you get an error saying https protocol not supported, simply erase the https:// from the pasted url and rewrite it in, there is a 
     hidden character that gets pasted (sneaky!) on Windows.  
 
-2. Navigate to Extensions on VSCode and install "PlatoformIO IDE"  
-    [note] restarting VSCode may be required and an internet connection is required!  
-
-3. Select the "PIO Home" tab in VSCode > "Import Existing Project" > Navigate to the directory where the codebase was cloned >   
-    open "flight_computer_program" > Scroll down to reveal the "Import Project" > Select board as "Teensy 4.1"  
-
-4. At the bottom click on the checkbox to build the codebase
-
-run `pio run -t compiledb` if you need the latest compilation_commands.json file for DAP interface(s).
 
 
 ## BUILDING
-
-### Using the terminal
-`pio run` while in the directory where platform.ini is located
-
-### Using VSCode and PlatoformIO
-Click on the :heavy_check_mark: on the bottom bar in VSCode
+1. Open th project in the STM32 Cube IDE
+2. Navigate to Core/Src and open main.cpp
+3. On the top menu bar (ribbon), click project -> bulid project
+4. On the icon menu bar directly under the top ribbon, click the debug icon
 
 
 # Contributing
