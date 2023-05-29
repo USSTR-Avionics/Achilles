@@ -220,7 +220,7 @@ void StartTurnLedOn(void const * argument)
   {
 	// Turn led on
 	HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_SET);
-    osDelay(500);
+    osDelay(1000);
   }
   /* USER CODE END 5 */
 }
@@ -240,7 +240,7 @@ void StartTurnLedOff(void const * argument)
   {
 	  // Turn Led off
 	  HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_RESET);
-	  osDelay(500);
+	  osDelay(2000);
   }
   /* USER CODE END StartTurnLedOff */
 }

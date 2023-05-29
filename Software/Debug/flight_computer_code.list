@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020010  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000cdfc  00000000  00000000  00020039  2**0
+ 12 .debug_info   0000cdfe  00000000  00000000  00020039  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002342  00000000  00000000  0002ce35  2**0
+ 13 .debug_abbrev 0000236f  00000000  00000000  0002ce37  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000de8  00000000  00000000  0002f178  2**3
+ 14 .debug_aranges 00000de8  00000000  00000000  0002f1a8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000cd0  00000000  00000000  0002ff60  2**3
+ 15 .debug_ranges 00000cd0  00000000  00000000  0002ff90  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000180cb  00000000  00000000  00030c30  2**0
+ 16 .debug_macro  000180cb  00000000  00000000  00030c60  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000f97e  00000000  00000000  00048cfb  2**0
+ 17 .debug_line   0000f97e  00000000  00000000  00048d2b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008f3d5  00000000  00000000  00058679  2**0
+ 18 .debug_str    0008f3d5  00000000  00000000  000586a9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000e7a4e  2**0
+ 19 .comment      00000050  00000000  00000000  000e7a7e  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000038ac  00000000  00000000  000e7aa0  2**2
+ 20 .debug_frame  000038ac  00000000  00000000  000e7ad0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -373,13 +373,14 @@ void StartTurnLedOn(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	// Turn led on
 	HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_SET);
  80002d4:	2201      	movs	r2, #1
  80002d6:	2120      	movs	r1, #32
  80002d8:	4803      	ldr	r0, [pc, #12]	; (80002e8 <StartTurnLedOn+0x1c>)
  80002da:	f000 fbbb 	bl	8000a54 <HAL_GPIO_WritePin>
-    osDelay(300);
- 80002de:	f44f 7096 	mov.w	r0, #300	; 0x12c
+    osDelay(1000);
+ 80002de:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  80002e2:	f001 faaf 	bl	8001844 <osDelay>
 	HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_SET);
  80002e6:	e7f5      	b.n	80002d4 <StartTurnLedOn+0x8>
@@ -400,13 +401,14 @@ void StartTurnLedOff(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+	  // Turn Led off
 	  HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_RESET);
  80002f4:	2200      	movs	r2, #0
  80002f6:	2120      	movs	r1, #32
  80002f8:	4803      	ldr	r0, [pc, #12]	; (8000308 <StartTurnLedOff+0x1c>)
  80002fa:	f000 fbab 	bl	8000a54 <HAL_GPIO_WritePin>
-	  osDelay(300);
- 80002fe:	f44f 7096 	mov.w	r0, #300	; 0x12c
+	  osDelay(2000);
+ 80002fe:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  8000302:	f001 fa9f 	bl	8001844 <osDelay>
 	  HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_RESET);
  8000306:	e7f5      	b.n	80002f4 <StartTurnLedOff+0x8>
