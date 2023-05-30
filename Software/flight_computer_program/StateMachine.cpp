@@ -65,5 +65,5 @@ void StateMachine::call_function(){
 }
 
 StateMachine::StateMachine(){
-
+    flight_state = UNARMED;
 }
