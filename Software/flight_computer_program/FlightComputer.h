@@ -21,7 +21,7 @@ private:
 
     void main_loop();
     
-    void FlightComputer();
+    FlightComputer();
 public:
     void init();
 };
