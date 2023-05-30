@@ -36,6 +36,8 @@ void FlightComputer::init(){
     
     FlightComputer::FlightComputer(){
         able_to_fly = true;
+        flight_function = StateMachine();
+        sensor_data = SensorData();
     }
 }
 
