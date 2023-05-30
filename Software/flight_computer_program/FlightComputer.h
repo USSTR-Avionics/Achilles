@@ -5,7 +5,7 @@
 
 class FlightComputer{
 private:
-    bool AbleToFly = true;
+    bool able_to_fly;
 
     StateMachine flight_function;
 
@@ -20,6 +20,8 @@ private:
     void retrieve_data();
 
     void main_loop();
+    
+    void FlightComputer();
 public:
     void init();
 };
