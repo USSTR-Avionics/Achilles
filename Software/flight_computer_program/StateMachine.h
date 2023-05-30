@@ -1,21 +1,10 @@
 #pragma once
+#include "flight_states.h"
+
 class StateMachine{
 private:
     SensorData sensor_data;
 public:
-
-    enum FlightStates{
-        UNARMED,
-        GROUND_IDLE,
-        POWERED_FLIGHT,
-        UNPOWERED_FLIGHT,
-        BALISTIC_DECENT,
-        MAIN_CHUTE,
-        LAND_SAFE
-    };
-
-    FlightStates flight_state = UNARMED;
-
     void set_variables();
 
     void unarmed();
