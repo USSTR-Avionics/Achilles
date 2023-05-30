@@ -5,6 +5,7 @@ class StateMachine{
 private:
     SensorData sensor_data;
 public:
+    FlightStates flight_state;
     void set_variables();
 
     void unarmed();
