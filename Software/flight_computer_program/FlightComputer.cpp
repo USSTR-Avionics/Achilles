@@ -33,5 +33,9 @@ void FlightComputer::init(){
     if(start_health_check()){
         main_loop();
     }
+    
+    FlightComputer::FlightComputer(){
+        able_to_fly = true;
+    }
 }
 
