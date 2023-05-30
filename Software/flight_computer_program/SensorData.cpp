@@ -1,9 +1,10 @@
-class SensorData{
-public:
-    //SensorData - needs to store data from the following sensors:
-    //    - accelerometer
-    //    - gyroscope
-    //    - magnetometer
-    //    - barometer
+#include "SensorData.h"
 
-};
+SensorData::SensorData(){
+
+}
+
+void SensorData::setData(SensorData data){
+    
+}
+
