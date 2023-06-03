@@ -1,6 +1,6 @@
 #include "SensorData.h"
 #include "StateMachine.h"
-
+#include "flight_states.h"
 
 void StateMachine::set_variables(){
     
@@ -37,25 +37,25 @@ void StateMachine::land_safe(){
 void StateMachine::call_function(){
     switch (flight_state)
     {
-    case UNARMED:
+    case FlightStates::UNARMED:
         unarmed();
         break;
-    case GROUND_IDLE:
+    case FlightStates::GROUND_IDLE:
         ground_idle();
         break;
-    case POWERED_FLIGHT:
+    case FlightStates::POWERED_FLIGHT:
         powered_flight();
         break;
-    case UNPOWERED_FLIGHT:
+    case FlightStates::UNPOWERED_FLIGHT:
         unopowered_flight();
         break;
-    case BALISTIC_DECENT:
+    case FlightStates::BALISTIC_DECENT:
         balistic_decent();
         break;
-    case MAIN_CHUTE:
+    case FlightStates::MAIN_CHUTE:
         main_chute();
         break;
-    case LAND_SAFE:
+    case FlightStates::LAND_SAFE:
         land_safe();
         break;
     default:
@@ -65,5 +65,5 @@ void StateMachine::call_function(){
 }
 
 StateMachine::StateMachine(){
-    flight_state = UNARMED;
+    flight_state = FlightStates::UNARMED;
 }
