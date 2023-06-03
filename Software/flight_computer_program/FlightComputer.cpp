@@ -19,7 +19,7 @@ void FlightComputer::retrieve_data(){
 //Main
 void FlightComputer::main_loop(){
 
-    while (AbleToFly)
+    while (able_to_fly)
     {
         retrieve_data();
         mid_flight_health_check();
@@ -33,11 +33,10 @@ void FlightComputer::init(){
     if(start_health_check()){
         main_loop();
     }
-    
-    FlightComputer::FlightComputer(){
+}
+
+FlightComputer::FlightComputer(){
         able_to_fly = true;
         flight_function = StateMachine();
         sensor_data = SensorData();
-    }
 }
-
