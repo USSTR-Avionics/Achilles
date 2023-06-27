@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "debug_printer/debug_printer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,6 +42,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart2;
+
 osThreadId turnLedOnHandle;
 osThreadId turnLedOffHandle;
 /* USER CODE BEGIN PV */
@@ -50,6 +53,7 @@ osThreadId turnLedOffHandle;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
 void StartTurnLedOn(void const * argument);
 void StartTurnLedOff(void const * argument);
 
@@ -90,8 +94,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  uart_init(huart2);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -174,6 +179,39 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief USART2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART2_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART2_Init 0 */
+
+  /* USER CODE END USART2_Init 0 */
+
+  /* USER CODE BEGIN USART2_Init 1 */
+
+  /* USER CODE END USART2_Init 1 */
+  huart2.Instance = USART2;
+  huart2.Init.BaudRate = 115200;
+  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.StopBits = UART_STOPBITS_1;
+  huart2.Init.Parity = UART_PARITY_EVEN;
+  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART2_Init 2 */
+
+  /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -220,6 +258,11 @@ void StartTurnLedOn(void const * argument)
   {
 	// Turn led on
 	HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_SET);
+//	if(HAL_UART_Transmit(&huart2, "ON!! ", 6, 100) != HAL_OK){
+//		Error_Handler();
+//	}
+
+	debug_print("ON!! ");
     osDelay(1000);
   }
   /* USER CODE END 5 */
@@ -240,6 +283,7 @@ void StartTurnLedOff(void const * argument)
   {
 	  // Turn Led off
 	  HAL_GPIO_WritePin(GPIOA, LED_Pin, GPIO_PIN_RESET);
+	  debug_print("OFF!! ");
 	  osDelay(2000);
   }
   /* USER CODE END StartTurnLedOff */
