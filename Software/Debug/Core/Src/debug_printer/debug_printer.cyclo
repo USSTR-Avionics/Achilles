@@ -1,0 +1,3 @@
+debug_printer.c:5:1:uart_init	1
+debug_printer.c:10:6:uart_print	2
+debug_printer.c:19:6:debug_print	1
