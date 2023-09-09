@@ -1,12 +1,10 @@
 #pragma once
 #include "flight_states.h"
+#include "SensorData.h"
 
 class StateMachine{
 private:
     SensorData sensor_data;
-public:
-    FlightStates flight_state;
-    void set_variables();
 
     void unarmed();
 
@@ -21,6 +19,9 @@ public:
     void main_chute();
 
     void land_safe();
+public:
+    FlightStates flight_state;
+    void set_variables();
 
     void call_function();
 
