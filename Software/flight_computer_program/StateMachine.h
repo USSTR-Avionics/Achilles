@@ -1,5 +1,6 @@
 #pragma once
 #include "flight_states.h"
+#include "SensorData.h"
 
 class StateMachine{
 private:
