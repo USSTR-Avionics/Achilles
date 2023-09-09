@@ -7,31 +7,31 @@ void StateMachine::set_variables(){
 }
 
 void StateMachine::unarmed(){
-
+    //check arming signal from canbus
 }
 
 void StateMachine::ground_idle(){
-
+    //swich state on acceleration
 }
 
 void StateMachine::powered_flight(){
-
+    //swich state on deceleration
 }
 
 void StateMachine::unopowered_flight(){
-
+    //swich state on apoge
 }
 
 void StateMachine::balistic_decent(){
-
+    //switch state on proper altitude
 }
 
 void StateMachine::main_chute(){
-
+    //switch state if on ground
 }
 
 void StateMachine::land_safe(){
-
+    
 }
 
 void StateMachine::call_function(){
